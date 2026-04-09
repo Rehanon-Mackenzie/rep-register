@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("workout_urls"), name="workouts_urls"), # the apps urls are loaded as the main urls
+    path('workouts/', include('workouts.urls'), name='workouts-urls'),
 ]
