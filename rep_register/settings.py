@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 import dj_database_url
-if os.path.isfile('env.py'): # This file does not exist on the deployed version
+if os.path.isfile('env.py'):  # This file does not exist on the deployed version
     import env
 from pathlib import Path
 
@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.herokuapp.com', '.127.0.0.1',]
 
