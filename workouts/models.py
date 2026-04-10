@@ -11,6 +11,7 @@ class Workout(models.Model):
     reps = models.IntegerField()
     date = models.DateField(auto_now_add=True)
 
+    @property
     def volume(self):
         return self.weight * self.sets * self.reps
 
