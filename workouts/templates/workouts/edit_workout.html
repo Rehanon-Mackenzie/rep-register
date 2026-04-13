@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h2>Edit Workout</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form | crispy }}
+    <button type="submit">Save Changes</button>
+   <a href="{% url 'workouts:index' %}" class="btn btn-outline-secondary">Cancel / Back to My Workouts</a>
+</form>
+
+{% endblock content %}
