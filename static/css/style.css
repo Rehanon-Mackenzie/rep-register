@@ -1,0 +1,21 @@
+/* Buttons styling */
+
+.btn-delete {
+    border-radius: 20px;
+    font-weight: 600;
+    padding: 5px 12px;
+}
+
+.btn-delete:hover {
+    background-color: #b02a37; /* slightly darker red */
+}
+
+.btn-cancel {
+    border-radius: 20px;
+    font-weight: 600;
+    padding: 5px 12px;
+}
+
+.btn-cancel:hover {
+    background-color: rgb(235, 223, 59) /* slightly darker yellow */
+}

@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>Rep Register</h1>
-  <p>Track your workouts and stay consistent.</p>
-  <a href="{% url 'account_login' %}" class="btn btn-primary">Login</a>
-  <a href="{% url 'account_logout' %}" class="btn btn-primary">Logout</a>
+<p>The Rep Register app allows you to track your workouts and stay consistent.</p>
+<p>Every time you hit the gym or workout from home you just need to enter the details and Rep Register will calculate the
+    volume for you and store your efforts.</p>
+<p>Allowing you to stay on target with your fitness goals.</p>
+<a href="{% url 'account_login' %}" class="btn btn-primary">Login</a>
+<a href="{% url 'account_signup' %}" class="btn btn-primary">Sign Up</a>
 {% endblock %}
