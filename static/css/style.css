@@ -1,21 +1,31 @@
 /* Buttons styling */
 
-.btn-delete {
+.btn-delete, .btn-cancel {
     border-radius: 20px;
     font-weight: 600;
     padding: 5px 12px;
 }
 
+/* Hover states */
 .btn-delete:hover {
     background-color: #b02a37; /* slightly darker red */
 }
 
-.btn-cancel {
-    border-radius: 20px;
-    font-weight: 600;
-    padding: 5px 12px;
+.btn-cancel:hover {
+    background-color: rgb(235, 223, 59); /* slightly darker yellow */
 }
 
-.btn-cancel:hover {
-    background-color: rgb(235, 223, 59) /* slightly darker yellow */
+/* Mobile layout */
+
+.action-buttons {
+display: flex;
+flex-direction: column;
+gap: 5px
+}
+
+/* Desktop layout */
+@media (min-width: 768px) {
+    .action-button {
+        flex-direction: row;
+    }
 }

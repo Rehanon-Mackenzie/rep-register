@@ -2,6 +2,7 @@
 {% load i18n %}
 {% block content %}
 <h2>Your Workouts</h2>
+<div class="table-responsive">
 <table class="table table-striped">
     <thead>
         <tr>
@@ -24,7 +25,7 @@
             <td>{{ workout.reps }}</td>
             <td>{{ workout.volume }}</td>
             <td>{{ workout.date }}</td>
-            <td><a href="{% url 'workouts:edit_workout' workout.id %}" class="btn btn-warning btn-sm">Edit</a>
+            <td class="action-buttons"><a href="{% url 'workouts:edit_workout' workout.id %}" class="btn btn-warning btn-sm">Edit</a>
                 <button type="button" data-bs-toggle="modal" data-bs-target="#deleteModal{{ workout.id }}"
                     class="btn btn-danger btn-sm btn-delete">Delete</button>
             </td>
@@ -40,6 +41,7 @@
 
     </tbody>
 </table>
+</div>
 {% comment delete modal %} {% endcomment %}
 {% for workout in workouts %}
 <div class="modal fade" id="deleteModal{{ workout.id }}" tabindex="-1">
