@@ -56,6 +56,9 @@ This section documents the decisions made in the planning phase of the build.  I
 ### User Story Testing
 Each user story was tested manually and where appropriate with automated testing using Django tests.  This is documented in [Testing](#Testing)
 
+## Design
+
+
 ### Features
 
 #### Existing Features
