@@ -28,6 +28,7 @@ Visit the deployed site: [Rep Register](https://rep-register-0917d4849eb9.heroku
     * [Table of Contents](#table-of-contents)
     * [About](#about)
     * [User Experience](#user-experience-ux)
+    * [Design](#design)
     * [Testing](#testing)
     
 
@@ -36,6 +37,7 @@ Visit the deployed site: [Rep Register](https://rep-register-0917d4849eb9.heroku
 ## User Experience (UX)
 This section documents the decisions made in the planning phase of the build.  I applied Agile methodology to plan this build.  Specifically, I used GitHub Issues and a Kanban board to plan out the requirements and worked with MoSCoW prioritisation method to create a minimum viable product.  This allowed me to think of what was absolute necessary in this iteration of the app and what could be developed in future versions.
 
+![Project Board](/documentation/planning/project-board.PNG)
 
 ### User Stories
 | Target | Expectation | Outcome | Classification|
@@ -58,6 +60,9 @@ Each user story was tested manually and where appropriate with automated testing
 
 ## Design
 
+I used [draw.io](https://www.drawio.com/) to follow best practice and create a flow diagram for how the app would run in its entirety.  This was very helpful in clarifying the layout of the app, the functions that would need to be written and the templates that would need to be coded.
+
+![Flow Diagram](/documentation/diagrams/rep-register-flow.png)
 
 ### Features
 
