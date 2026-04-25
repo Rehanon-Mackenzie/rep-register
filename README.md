@@ -64,6 +64,8 @@ I used [draw.io](https://www.drawio.com/) to follow best practice and create a f
 
 ![Flow Diagram](/documentation/diagrams/rep-register-flow.png)
 
+
+
 ### Features
 
 #### Existing Features
@@ -78,3 +80,16 @@ I used [draw.io](https://www.drawio.com/) to follow best practice and create a f
 | Delete Confirmation | On confirming delete the user is redirected to the dashboard and a confirmation of the action is displayed. | ![Delete Confirmation](/documentation/features/delete-confirmation.PNG) |
 | Edit Workout | On clicking edit workout the user is taken to the workout form where they can update the data for the workout.  If they decide they don't want to update they can click cancel and will be redirected to the dashboard. | ![Edit Workout](/documentation/features/edit-workout.PNG) |
 | Edit Confirmation | When the user has updated their workout they receive confirmation of the action. | ![Edit Confirmation](/documentation/features/edit-confirmation.PNG)
+
+#### Future Features
+* **Workout Analytics**: graphs and charts that users can see their progress visually.
+* **Inbuilt Rest Timer**: enabling users to automatically time their rest between sets.
+* **Instructional Videos**: showing users how to perform the exercise correctly.
+* **Nutritional Advice**: information and advice on nutrition to support users fitness journey in parallel with their workouts.
+
+## Tools & Technologies
+| Tool/Tech | Use |
+|----|----|
+| [![badge](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) | Version control. (git add, git commit, git push, git pull) |
+| [![badge](https://img.shields.io/badge/GitHub-grey?logo=GitHub)](https://github.com/) | Secure online storage |
+![VS Code](https://img.shields.io/badge/VS%20Code-grey?logo=visualstudiocode&logoColor=blue)
