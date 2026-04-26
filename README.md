@@ -92,4 +92,22 @@ I used [draw.io](https://www.drawio.com/) to follow best practice and create a f
 |----|----|
 | [![badge](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) | Version control. (git add, git commit, git push, git pull) |
 | [![badge](https://img.shields.io/badge/GitHub-grey?logo=GitHub)](https://github.com/) | Secure online storage |
-![VS Code](https://img.shields.io/badge/VS%20Code-grey?logo=visualstudiocode&logoColor=blue)
+[![Badge](https://img.shields.io/badge/VSCode-grey?logo=htmx&logoColor=blue)](https://code.visualstudio.com/) | Local IDE for development |
+[![Badge](https://img.shields.io/badge/JavaScript-grey?logo=javascript)](https://www.javascript.com/) | User interaction on the site |
+[![Badge](https://img.shields.io/badge/HTML-grey?logo=html5)](https://en.wikipedia.org/wiki/HTML) | Main site content and layout |
+[![Badge](https://img.shields.io/badge/CSS-grey?logo=css&logoColor=rebeccapurple)](https://www.python.org/) |Design and layout |
+[![Badge](https://img.shields.io/badge/Bootstrap-grey?logo=bootstrap)](https://getbootstrap.com/) | Front-end CSS framework for modern responsiveness and pre-built components|
+[![Badge](https://img.shields.io/badge/Balsamiq-grey?)](https://balsamiq.cloud/) | For creating wireframes |
+[![Badge](https://img.shields.io/badge/FREEP!K-grey?)](https://www.freepik.com/) | Icons |
+[![Badge](https://img.shields.io/badge/favicon.io-grey?)](https://favicon.io/) | Favicon generator |
+[![Badge](https://img.shields.io/badge/Python-grey?logo=python)](https://www.python.org/) | Back end programming |
+[![Badge](https://img.shields.io/badge/Django-grey?logo=django)](https://www.djangoproject.com/) | Python framework for web application development|
+[![Badge](https://img.shields.io/badge/Heroku-grey?logo=heroku)](https://www.heroku.com/) | Hosting the deployed site |
+[![Badge](https://img.shields.io/badge/PostgreSQL-grey?logo=PostgreSQL)](https://www.postgresql.org/) | Relational database management |
+[![Badge](https://img.shields.io/badge/draw.io-grey?logo=diagrams.net)](https://www.postgresql.org/) | Flow diagrams for mapping app logic |
+[![Badge](https://img.shields.io/badge/chatGPT-grey?logo=chatgpt)](https://chatgpt.com/) | Used to help initial planning |
+[![Badge](https://img.shields.io/badge/Claude-grey?logo=claude)](https://claude.ai/) | Used to help initial planning |
+[![Badge](https://img.shields.io/badge/youtube-grey?logo=youtube&)](https://youtube.com/) | Tutorials and explanations of Django features |
+
+
+
