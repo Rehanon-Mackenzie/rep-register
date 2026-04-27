@@ -5,12 +5,11 @@ from django.contrib.auth.decorators import login_required
 from .models import Workout
 from .forms import WorkoutForm
 
-# Create your views here.
 
 @login_required
 def index(request):
     workouts = Workout.objects.filter(user=request.user)
-   
+
     context = {
         "workouts": workouts
     }
@@ -30,8 +29,6 @@ def add_workout(request):
     else:
         form = WorkoutForm()
     return render(request, 'workouts/add_workout.html', {'form': form})
-
-
 
 
 @login_required

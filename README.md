@@ -60,11 +60,52 @@ Each user story was tested manually and where appropriate with automated testing
 
 ## Design
 
+Taking the app's requirements from the planning stage I then started to design the build.  This included capturing what data would be stored in the back-end of the app and how it would be organised in an Entity Relationship (ERD).
+
+Once I had clarified this I then documented the flow of the app and used this to design the user interface.
+
+### Database Model
+
+Rep-Register uses a single model, Workout, which stores the individual exercise entries logged by a user.  Each workout is linked to Django's inbuilt User model.  The database uses a one-to-many relationship i.e. one user can have many workouts.
+
+![Database ERD](/documentation/diagrams/database-ERD.png)
+
+**User Model**
+| Field | Type | Notes |
+|----|----|----|
+| id | AutoField | Primary key, auto-generated |
+| username | CharField | Unique, required |
+| email | CharField | Optional |
+| password | CharField | Stored as a hash |
+
+**Workout Model**
+| Field | Type | Notes |
+|----|----|----|
+| id | AutoField | Primary key, auto-generated |
+| user_id | ForeignKey| Links to the User model, cascades on delete |
+| exercise | CharField | Name of exercise (max 100 characters) |
+| weight | IntegerField | Weight used (kg) |
+| sets | IntegerField | Number of sets performed |
+| reps | IntegerField | Reps per set |
+| date | DateField | Auto-set to today on creation |
+| volume| computed | weight x sets x reps - not stored in DB
+
+### App Cycle Flowchart
 I used [draw.io](https://www.drawio.com/) to follow best practice and create a flow diagram for how the app would run in its entirety.  This was very helpful in clarifying the layout of the app, the functions that would need to be written and the templates that would need to be coded.
 
 ![Flow Diagram](/documentation/diagrams/rep-register-flow.png)
 
+### Wireframes
+Finally, I used [Balsamiq](https://balsamiq.cloud/) to plan out the layout of the GUI and determine what templates were needed.
 
+| Page | Layout |
+|----|----|
+| Home | ![Home page wireframe](/documentation/wireframes/home-page.png) |
+| Dashboard | ![Dashboard wireframe](/documentation/wireframes/dashboard.PNG) |
+| Login | ![Login wireframe](/documentation/wireframes/login.PNG) |
+| Workout form | ![Workout form wireframe](/documentation/wireframes/workout-form.PNG) |
+
+Just to note the app was designed in this iteration for a desktop layout but is able to be used on smaller devices with the use of horizontal scroll.  Future implementation would include developing an improved user experience across all devices.
 
 ### Features
 
@@ -79,13 +120,22 @@ I used [draw.io](https://www.drawio.com/) to follow best practice and create a f
 | Delete Modal | On clicking delete a modal pops to check that the user definitely wants to delete their workout because the action can't be undone. This is to provide an improved user experience. | ![Delete Modal](/documentation/features/delete-modal.PNG) |
 | Delete Confirmation | On confirming delete the user is redirected to the dashboard and a confirmation of the action is displayed. | ![Delete Confirmation](/documentation/features/delete-confirmation.PNG) |
 | Edit Workout | On clicking edit workout the user is taken to the workout form where they can update the data for the workout.  If they decide they don't want to update they can click cancel and will be redirected to the dashboard. | ![Edit Workout](/documentation/features/edit-workout.PNG) |
-| Edit Confirmation | When the user has updated their workout they receive confirmation of the action. | ![Edit Confirmation](/documentation/features/edit-confirmation.PNG)
+| Edit Confirmation | When the user has updated their workout they receive confirmation of the action. | ![Edit Confirmation](/documentation/features/edit-confirmation.PNG) |
+| 404 Error Page | Explains to the player there's been an error. Provides a link to take them back to the home page. | ![404-error](/documentation/features/404-error.PNG) |
 
 #### Future Features
 * **Workout Analytics**: graphs and charts that users can see their progress visually.
 * **Inbuilt Rest Timer**: enabling users to automatically time their rest between sets.
 * **Instructional Videos**: showing users how to perform the exercise correctly.
 * **Nutritional Advice**: information and advice on nutrition to support users fitness journey in parallel with their workouts.
+
+### Functions
+The pirmary functions used on this application are:
+
+- `home(request)`
+    - Take the user to home page.
+- `index(request)`
+    - login
 
 ## Tools & Technologies
 | Tool/Tech | Use |
