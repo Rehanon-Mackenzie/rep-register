@@ -11,16 +11,20 @@ class TestWorkoutViews(TestCase):
 
     def setUp(self):
         """
-        Initialises a test user and sample workout to be used across the test cases
+        Initialises a test user and sample workout to be
+        used across the test cases
         """
         self.user = User.objects.create_superuser(
             username="myUsername", password="myPassword", email="test@test.com"
         )
-        self.workout = Workout.objects.create(user=self.user, exercise="squat", weight="25", sets="3", reps="10")
+        self.workout = Workout.objects.create(
+                user=self.user, exercise="squat", weight="25", sets="3",
+                reps="10")
 
     def test_workout_page_loads_for_logged_in_user(self):
         """
-        Checks that the workout index page returns a 200 status for an authenticated user
+        Checks that the workout index page returns a 200 status
+        for an authenticated user
         """
         self.client.login(username="myUsername", password="myPassword")
         response = self.client.get(reverse("workouts:index"))
@@ -28,7 +32,8 @@ class TestWorkoutViews(TestCase):
 
     def test_redirect_if_not_logged_in(self):
         """
-        Checks that unauthenticated users are redirected away from protected pages
+        Checks that unauthenticated users are redirected away
+        from protected pages
         """
         response = self.client.get(reverse("workouts:index"))
         self.assertEqual(response.status_code, 302)
@@ -37,7 +42,8 @@ class TestWorkoutViews(TestCase):
 
     def test_correct_template_used(self):
         """
-        Verifies that the correct HTML template is used when rendering the workout page
+        Verifies that the correct HTML template is
+        used when rendering the workout page
         """
         self.client.login(username="myUsername", password="myPassword")
         response = self.client.get(reverse("workouts:index"))
@@ -45,7 +51,8 @@ class TestWorkoutViews(TestCase):
 
     def test_edit_workout(self):
         """
-        Tests that an existing workout can be successfully updated with new data
+        Tests that an existing workout
+        can be successfully updated with new data
         """
         self.client.login(username="myUsername", password="myPassword")
         response = self.client.post(
@@ -62,7 +69,8 @@ class TestWorkoutViews(TestCase):
 
     def test_delete_workout(self):
         """
-        Tests that a workout is correctly removed from the database when deleted
+        Tests that a workout is correctly removed
+        from the database when deleted
         """
         self.client.login(username="myUsername", password="myPassword")
         response = self.client.post(
