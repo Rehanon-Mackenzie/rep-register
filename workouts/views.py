@@ -8,6 +8,9 @@ from .forms import WorkoutForm
 
 @login_required
 def index(request):
+    """
+    Retrieves and displays all the workouts logged by the logged-in user
+    """
     workouts = Workout.objects.filter(user=request.user)
 
     context = {
@@ -18,6 +21,9 @@ def index(request):
 
 @login_required
 def add_workout(request):
+    """
+    Handles the form to create and save a new workout entry
+    """
     if request.method== "POST":
         form = WorkoutForm(request.POST)
         if form.is_valid():
@@ -33,6 +39,9 @@ def add_workout(request):
 
 @login_required
 def edit_workout(request, workout_id):
+    """
+    Retrieves an existing workout by its ID and handles the form to update it
+    """
     workout = get_object_or_404(Workout, id=workout_id, user=request.user)
     if request.method == "POST":
         form = WorkoutForm(request.POST, instance=workout)
@@ -47,6 +56,9 @@ def edit_workout(request, workout_id):
 
 @login_required
 def delete_workout(request, workout_id):
+    """
+    Retrieves an existing workout by its ID and deletes it from the database
+    """
     workout = get_object_or_404(Workout, id=workout_id, user=request.user)
     if request.method == "POST":
         workout.delete()

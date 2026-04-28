@@ -130,12 +130,39 @@ Just to note the app was designed in this iteration for a desktop layout but is 
 * **Nutritional Advice**: information and advice on nutrition to support users fitness journey in parallel with their workouts.
 
 ### Functions
-The pirmary functions used on this application are:
+The primary functions used on this application are:
 
 - `home(request)`
-    - Take the user to home page.
+    - Renders the home page
 - `index(request)`
-    - login
+    - Retrieves and displays all the workouts logged by the logged-in user
+- `add_workout(request)`
+    - Handles the form to create and save a new workout entry
+- `edit_workout(request, workout_id)`
+    - Retrieves an existing workout by its ID and handles the form to update it
+- `delete_workout(request, workout_id)`
+    - Retrieves an existing workout by its ID and deletes it from the database
+- `volume(self)`
+    - Computed property that calculates total volume by multiplying weight x sets x reps
+- `_str_(self)`
+    - Returns the exercise name as the string representation of the workout object
+- `setUp(self)`
+    - Initialises a test user and sample workout to be used across the test cases
+- `test_workout_page_loads_for_logged_in_user(self)`
+    - Check that the workout index page returns a 200 status for an authenticated user
+- `test_redirect_if_not_logged_in(self)`
+    - Checks that unauthenticated users are redirected away from protected pages
+- `test_correct_template_used(self)`
+    - Verifies that the correct HTML template is used when rendering the workout page
+- `test_edit_workout(self)`
+    - Tests that an existing workout can be successfully updated with new data
+- `test_delete_workout(self)`
+    - Tests that a workout is correctly removed from the database when deleted
+- `test_form_valid_data(self)`
+    - Tests that the workout form is valid all required fields are provided
+- `test_form_missing_fields(self)`
+    - Tests that the workout form fails validation when required fields are missing
+
 
 ## Tools & Technologies
 | Tool/Tech | Use |
