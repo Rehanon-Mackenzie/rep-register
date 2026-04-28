@@ -10,21 +10,38 @@ from .forms import WorkoutForm
 def index(request):
     """
     Retrieves and displays all the workouts logged by the logged-in user
+
+    **Context**
+
+    ``workouts``
+        All instances of :model:`workouts.Workout` for the current user.
+
+    **Template**
+
+    :template:`workouts/index.html`
     """
     workouts = Workout.objects.filter(user=request.user)
 
     context = {
         "workouts": workouts
     }
-    return render(request,"workouts/index.html", context)
+    return render(request, "workouts/index.html", context)
 
 
 @login_required
 def add_workout(request):
     """
-    Handles the form to create and save a new workout entry
+    Handles the form to create and save a new workout entry.
+    **Context**
+
+    ``form``
+        An instance of :form:`workouts.WorkoutForm`.
+
+    **Template**
+
+    :template:`workouts/add_workout.html`
     """
-    if request.method== "POST":
+    if request.method == "POST":
         form = WorkoutForm(request.POST)
         if form.is_valid():
             workout = form.save(commit=False)
@@ -41,6 +58,17 @@ def add_workout(request):
 def edit_workout(request, workout_id):
     """
     Retrieves an existing workout by its ID and handles the form to update it
+
+    **Context**
+
+    ``workout``
+        An instance of :model:`workouts.Workout`.
+    ``form``
+        An instance of :form: `workouts.WorkoutForm`.
+
+    **Template**
+
+    :template:`workouts/edit_workout.html`
     """
     workout = get_object_or_404(Workout, id=workout_id, user=request.user)
     if request.method == "POST":
@@ -58,6 +86,11 @@ def edit_workout(request, workout_id):
 def delete_workout(request, workout_id):
     """
     Retrieves an existing workout by its ID and deletes it from the database
+
+    **Context**
+
+    ``workout``
+        An instance of :model:`workouts.Workout`.
     """
     workout = get_object_or_404(Workout, id=workout_id, user=request.user)
     if request.method == "POST":

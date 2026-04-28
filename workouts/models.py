@@ -1,15 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
-# Create your models here.
 
 
 class Workout(models.Model):
     """
-    Represents a workout entry logged by a user.
-    Stores exercise details including weight, sets, rep and date.
-    Links to Django's built-in user model via a foreign key.
+   Stores a single workout entry for a logged-in user, related to :model:`auth.User`.
     """
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     exercise = models.CharField(max_length=100)
     weight = models.IntegerField()
     sets = models.IntegerField()
