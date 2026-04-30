@@ -4,7 +4,8 @@ from django.contrib.auth.models import User
 
 class Workout(models.Model):
     """
-   Stores a single workout entry for a logged-in user, related to :model:`auth.User`.
+   Stores a single workout entry for a logged-in user,
+   related to :model:`auth.User`.
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     exercise = models.CharField(max_length=100)

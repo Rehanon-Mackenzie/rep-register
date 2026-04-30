@@ -21,7 +21,8 @@ class TestWorkoutForm(TestCase):
 
     def test_form_missing_fields(self):
         """
-        Tests that the workout form fails validation when required fields are missing
+        Tests that the workout form fails validation when
+        required fields are missing
         """
         form = WorkoutForm(data={})
         self.assertFalse(form.is_valid())
