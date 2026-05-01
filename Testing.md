@@ -4,7 +4,7 @@
 |----|----|----|----|----|
 | | [home.html](/templates/home.html) | [HTML Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Frep-register-0917d4849eb9.herokuapp.com%2F#textarea) | ![Home Page](/documentation/validation/home-page-validation.PNG) | |
 | | [signup.html](/templates/account/signup.html) | [HTML Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Frep-register-0917d4849eb9.herokuapp.com%2Faccounts%2Fsignup%2F#textarea) | ![Signup Page](/documentation/validation/signup-page-errors.PNG) | HTML validation errors on the signup page originate from the aullauth package's rendered output and are not within the developer's code. |
-| | 
+| | [login.html](/documentation/validation/login-page-errors.PNG)
 
 ### Python Lint Validation
 
