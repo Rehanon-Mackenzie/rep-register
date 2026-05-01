@@ -1,8 +1,6 @@
 # Rep Register ![dumbell](/static/images/favicon-32x32.png)
 ## 💻 Developer
-Rehanon Mackenzie
-<br>
-[GitHub](https://github.com/Rehanon-Mackenzie)
+[Rehanon Mackenzie](https://github.com/Rehanon-Mackenzie)
 <br>
 ![GitHub last commit](https://img.shields.io/github/last-commit/rehanon-mackenzie/rep-register?style=for-badge&color=red)
 ![GitHub contributors](https://img.shields.io/github/contributors/rehanon-mackenzie/rep-register?style=for-badge&color=orange)
@@ -186,5 +184,180 @@ The primary functions used on this application are:
 [![Badge](https://img.shields.io/badge/Claude-grey?logo=claude)](https://claude.ai/) | Used to help initial planning |
 [![Badge](https://img.shields.io/badge/youtube-grey?logo=youtube&)](https://youtube.com/) | Tutorials and explanations of Django features |
 
+## Testing
+> [!Note]
+> Please see the separate [TESTING.md](Testing.md) file for all the tests carried out.
 
+### Known Bugs and Fixes
+| Issue | Fix | Status | Learning |
+|----|----|----|----|
+
+### Known Issues
+The project is designed to be responsive from 375px and upwards, in line with the material taught on the course LMS. Minor layout inconsistencies may occur on extra-wide (e.g. 4k/8k monitors), or smart-display devices (e.g. Nest Hub, Smart Watches, Game Boy Color, etc.), as these resolutions are outside the project's scope, as taught by Code Institute.
+
+## Deployment & Local Development
+
+The live deployed applied can be found at [Rep Register](https://rep-register-0917d4849eb9.herokuapp.com/)
+
+### Heroku Deployment
+This project uses [Heroku](https://www.heroku.com/) as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+
+Deployments steps are as follows after account setup:
+- Select **New** in the top right-hand corner of your Heroku Dashboard, and select **Create new app** from the dropdown menu.
+- Your app name must be unique, and then choose a region closest to you (EU or USA), then finally click **Create App**.
+- From the new app **Settings**, click **Reveal Config Vars**, and set your environment variables to match your private `env.py` file.
+
+>[!Important]
+> This is a sample only; you would replace the values with your own if cloning/forking my repository.
+
+| Key | Value|
+|----|----|
+| `DATABASE_URL` | user-inserts-own-postgres-database-url |
+| `DISABLE_COLLECTSTATIC | 1(*this is temporary, and can be removed for the final deployment*) |
+| `SECRET_KEY` | any-random-secret-key |
+
+Heroku needs some additional files in order to deploy properly.
+- [requirements.txt](/requirements.txt)
+- [Procfile](/Procfile)
+- [.python-version](/.python-version)
+
+You can install this project's [requirements.txt](/requirements.txt) (where applicable) using:
+- `pip3 install -r requirements.txt`
+
+If you have your own packages that have been installed, then the requirements file needs updating using:
+- `pip3 freeze --local > requirements.txt`
+
+The [Procfile](/Procfile) can be created with the following command:
+- `echo web: gunicorn app_name.wsgi > Procfile`
+- *replace `app_name` with the name of your primary Django app name; the folder where `settings.py` is located
+
+The [.python-version](/.python-version) file tells Heroku the specific version of Python to use when running your application.
+- `3.12` (or similar)
+
+For Heroku deployment, follow these steps to connect your own GitHub repository to the newly created app:
+
+Either (*recommended*):
+- Select **Automatic Deployment** from the Heroku app.
+
+Or:
+- In the Terminal/CLI, connect to Heroku using this command: `heroku login -i`
+- Set the remote for Heroku: `heroku git:remote -a app_name` (*replace `app_name` with your app name*)
+- After performing the standard Git `add`, `commit`, and `push` to GitHub, you can now type:
+    - `git push heroku main`
+
+The Python terminal window should now be connected and deployed to Heroku.  
+
+### PostgreSQL
+This project uses a [Code Institute PostgreSQL Database](https://dbs.ci-dbs.net/) for the Relational Database with Django.
+
+>[!Caution]
+>- PostgreSQL databases by Code Institute are only available to CI students.
+>- You must acquire your own PostgreSQL database through some other method if you plan to clone/fork this repository.
+>- Code Institute students are allowed a maximum of 8 databases.
+>- Databases are subject to deletion after 18 months.
+
+To obtain my Postgres Database from Code Institute, I followed these steps:
+- Submitted my email address to the CI PostgreSQL Database link above.
+- An email was sent to me with my new Postgres Database.
+- The Database connection string will resemble something like this:
+    - `postgres://<db_username>:<db_password>@<db_host_url>/<db_name>`
+- You can use the above URL with Django; simply paste it into your `env.py` file and Heroku Config Vars as `DATABASE_URL`.
+
+## WhiteNoise
+This project uses the [WhiteNoise](https://whitenoise.readthedocs.io/en/latest/) to aid with static files temporarily hosted on the live Heroku site.
+
+To include WhiteNoise in your own projects:
+- Install the WhiteNoise package:
+    - `pip install whitenoise`
+- Update the `requirements.txt` file with the newly installed package:
+    - `pip freeze --local > requirements.txt`
+- Edit your `settings.py` file and add WhiteHoise to the `MIDDLEWARE` list, above all other middleware (apart from Django's "SecurityMiddleware"):
+
+```` Python
+# settings.py
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # any additional middlware
+]
+````
+
+### Local Development
+This project can be cloned or forked to make a local copy on your own system.
+
+For either method, you will need to install any applicable packages found withing the [requirements.txt](requirements.txt) file.
+
+- `pip3 install -r  requirements.txt`.
+
+You will need to create a new file called `env.py` at the root-level, and include the same environment variables listed above from the Heroku deployment steps.
+
+>[!Important]
+>This is a sample only; you would replace the values with your own if cloning/forking my repository.
+
+Sample `env.py` file:
+
+```` Python
+import os
+
+os.environ.setdefault("SECRET_KEY", "any-random-secret-key")
+os.environ.setdefault("DATABASE_URL", "user-inserts-own-postgres-database-url")
+
+# local environment only (do not include these in production/deployment!)
+os.environ.setdefault("DEBUG", "True")
+````
+
+Once the project is cloned or forked, in order to run it locally, you'll need to follow these steps:
+- Start the Django app: `python3 manage.py runserver`
+- Stop the app once it's loaded: `CTRL+C` (*Windows/Linux*) or `⌘+C` (*Mac*)
+- Make any necessary migrations: `python3 manage.py makemigrations --dry-run` then `python3 manage.py makemigrations`
+- Migrate the data to the database: `python3 manage.py migrate --plan` then `python3 manage.py migrate`
+- Create a superuser: `python3 manage.py createsuperuser`
+- Load fixtures (*if applicable*): `python3 manage.py loaddata file-name.json` (repeat for each file)
+- Everything should be ready now, so run the Django app again: `python3 manage.py runserver`
+
+If you would like to backup your database models, use the following command for each model you'd like to create a fixture for:
+- `python3 manage.py dumpdata your-model > your-model.json`
+- *repeat this action for each model you wish to backup*
+- **NOTE**: You should never make a backup of the default *admin* or *users* data with confidential information.
+
+#### Cloning
+
+You can clone the repository by following these steps:
+
+1. Go to the repository for this project [Rehanon-Mackenzie/rep-register](https://github.com/Rehanon-Mackenzie/rep-register).
+2.  Locate and click on the green "Code" button at the very top, above the commits and files.
+3. Select whether you prefer to clone using "HTTPS", "SSH", or "GitHub CLI", and click the "copy" button to copy the URL to your clipboard.
+4. Open "Git Bash" or "Terminal".
+5. Change the current working directory to the location where you want the cloned directory.
+6. In your IDE Terminal, type the following command to clone the repository:
+    - `git clone https://www.github.com/Rehanon-Mackenzie/rep-register.git`
+7. Press "Enter" to create your local clone.
+
+Alternatively, if using Ona (formerly Gitpod), you can click below to create your own workspace using this repository.
+
+[![Open in Ona-Gitpod](https://ona.com/run-in-ona.svg)](https://gitpod.io/#https://www.github.com/Rehanon-Mackenzie/rep-register)
+
+**Please Note**: in order to directly open the project in Ona(Gitpod)m, you should have the browser extension installed.  A tutorial on how to do that can be found [here](https://ona.com/docs/classic/user/configure/user-settings/browser-extension).
+
+#### Forking
+By forking the GitHub Repository, you make a copy of the original repository on your GitHub account to view and/or make changes without affecting the original owner's repository. You can fork this repository by using the following steps:
+
+1. Log into GitHub and locate [Rehanon-Mackenzie/rep-register](https://github.com/Rehanon-Mackenzie/rep-register).
+2. At the top of the Repository, just below the "Settings" button on the menu, locate and click the "Fork" button.
+3. Once clicked, you should now have copy of the original repository in your own GitHub account.
+
+### Local VS Deployment
+There are no remaining major differences between the local version when compared to the deployed version online.
+
+
+## Credits
+
+### Code Used
+
+### Content
+
+### Media
+
+## Acknowledgements
 
