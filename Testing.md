@@ -1,12 +1,12 @@
 # Testing
-[!NOTE]
-Return back to the [README.md](README.md) file.
+>[!NOTE]
+>Return back to the [README.md](README.md) file.
 
 In developing *Rep Register* both automated and manual testing was employed. Both manual and automatic testing is vital to produce code that is clean and readable.
 
 Manual testing involves taking User Stories and going through each to make sure you have achieved all the features you set out to.  In this project friends, family and myself tested every page and each feature to ensure the logic was working as it should.  Please see the section below on [Manual Testing](#manual-testing) for the detailed account of tests that were undertaken.  Manual testing also involved looking at the responsive across all the different display types to ensure the user experience was the same throughout.
 
-Automated testing is where code is used to automatically test other code that has been developed.  The benefits are that it is quicker than manual testing especially if there is a lot  of code to test.  It can also pick up edge cases that would be missed in manual testing as one of the negatives to manual testing is the issue of human error.  The automatic testing I have used is the [Django Test Suite](https://docs.djangoproject.com/en/6.0/topics/testing/overview/).
+Automated testing is where code is used to automatically test other code that has been developed.  The benefits are that it is quicker than manual testing especially if there is a lot  of code to test.  It can also pick up edge cases that would be missed in manual testing as one of the negatives to manual testing is the issue of human error.  The automated testing I have used is the [Django test framework](https://docs.djangoproject.com/en/stable/topics/testing/overview/).
 
 Validation testing was undertaken using [W3C](https://www.w3.org/) to check HTML and CSS and then [PEP8 CI Linter](https://pep8ci.herokuapp.com/) to check Python for errors.  I also used Lighthouse testing in Google Dev Tools to assess performance, accessibility best practices and SEO.
 
@@ -45,7 +45,6 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 | | [test_views.py](/workouts/test_views.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/Rehanon-Mackenzie/rep-register/refs/heads/main/workouts/test_views.py) | ![Test Views Validation](/documentation/validation/workouts-tests-views-validation.PNG)| |
 | | [urls.py](/workouts/urls.py) | [PEP8 CI Link](https://raw.githubusercontent.com/Rehanon-Mackenzie/rep-register/refs/heads/main/workouts/urls.py) | ![Urls Validation](/documentation/validation/workouts-urls-validation.PNG) | |
 | | [views.py](/workouts/views.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/Rehanon-Mackenzie/rep-register/refs/heads/main/workouts/views.py) | ![Views Validation](/documentation/validation/workouts-views-validation.PNG)
-
 
 ### Lighthouse Testing
 
@@ -87,9 +86,9 @@ I used the Lighthouse extension within Chrome Developer Tools to test performanc
 | Hover colour change on sign in link to identify link | The link will change to the secondary colour to identify it's a clickable link | Hover over sign in link | Link changed to secondary colour | Pass|
 |  Sign up form | To allow new users to register their details  | New user entered their chosen username and password| Form was filled in | Pass  |
 | Password required | If user does not enter a password a message pops up to advised field is required  | Password field was left blank and sign up button clicked| Form was not accepted and message displayed to advise field is required | Pass|
-| Password confirmation | If user doesn not enter a password into the confirmation field a message pops up to advise field is required | Password confirmation field was left blank and sign up button clicked |  Form was not accepted and message displayed to advise field is required| Pass|
+| Password confirmation | If user does not enter a password into the confirmation field a message pops up to advise field is required | Password confirmation field was left blank and sign up button clicked |  Form was not accepted and message displayed to advise field is required| Pass|
 | Password check | If passwords don't match form is not accepted | Two different passwords were entered and sign up button clicked| Form was not accepted and message displayed to user to type same password twice | Pass|
-|  Sign up button | To take user to index html | Click sign in button  | Took authenticated user to index html | Pass 
+|  Sign up button | To take user to index html | Click sign in button  | Took authenticated user to index html | Pass |
 
 ### Login Page Testing
 
@@ -98,7 +97,6 @@ I used the Lighthouse extension within Chrome Developer Tools to test performanc
 | Hover colour change on sign up link to identify link | The link will change to the secondary colour to identify it's a clickable link | Hover over sign up link | Link changed to secondary colour | Pass|
 | Hover colour change on sign in button to identify link | The button will change to the secondary colour to identify it's a clickable link | Hover over sign in button | Button changed to secondary colour | Pass|
 |  Login form | To allow registered users to enter their login details  | Registered user entered their login details| Form was filled in | Pass  |
-| Hover colour change on sign in button to identify link | The button will change to the secondary colour to identify it's a clickable link | Hover over sign in button | Button changed to secondary colour | Pass|
 |  Sign in button | To take user to index html | Click sign in button  | Took authenticated user to index html | Pass |  
 
 
@@ -106,13 +104,51 @@ I used the Lighthouse extension within Chrome Developer Tools to test performanc
 | Feature  | Expected outcome  | Testing performed  | Result  | Pass/Fail  |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
 | Workout history | On sign in the user's saved workout data is displayed| User with saved workout data logged in | User's workout rendered | Pass |
+| No workout data message | On sign in a user with no saved data will have a dashboard that advises this | Use without workout data logged in | Dashboard rendered and displayed 'No workouts logged yet' | Pass|
 | Login confirmation | On sign in a message displays to say the user has successfully signed in | Authenticated user logged in | Successful sign in messaged displayed | Pass |
-| | Hover colour change on  edit button to identify link | The button will change to the secondary colour to identify it's a clickable link | Hover over edit button | Button changed to secondary colour | Pass|
+| Hover colour change on  edit button to identify link | The button will change to the secondary colour to identify it's a clickable link| Hover over edit button | Button changed to secondary colour | Pass|
 | Hover colour change on delete button to identify link | The button will change to the secondary colour to identify it's a clickable link | Hover over delete button | Button changed to secondary colour | Pass|
 | Hover colour change on add workout button to identify link | The button will change to the secondary colour to identify it's a clickable link | Hover over add workout button | Button changed to secondary colour | Pass|
 | Hover colour change on logout button to identify link | The button will change to the secondary colour to identify it's a clickable link | Hover over logout button | Button changed to secondary colour | Pass|
-|  Edit button | To take user to index html | Click edit button  | Took authenticated user to edit_workout.html | Pass | 
-|  Delete button | Delete confirmation model pops up | Click delete button  | Delete confirmation model popped up | Pass |  
-|  Delete confirmation model | To take user to index html | Click sign in button  | Took authenticated user to index html | Pass |  
+|  Edit button | To take user to edit_workout.html | Click edit button  | Took authenticated user to edit_workout.html | Pass | 
+|  Delete modal | Delete confirmation check modal pops up | Click delete button  | Delete confirmation modal popped up advising user delete cannot be undone and giving option to cancel | Pass |  
+|  Delete confirmation button | The selected workout data is deleted and user is returned to the dashboard and delete confirmation message is displayed| Click delete button  | Selected workout was removed and user returned to dashboard where message displayed 'workout deleted!' | Pass |   
+|  Delete Modal cancel button | The action is cancelled and user is returned to the dashboard| Click cancel button  | Modal close and user returned to dashboard | Pass |  
+| Add workout button | To take user to add workout form | Click add workout button | Took user to add workout form | Pass |
+| Logout button | To taker user to logout page | Click logout button | Took user to logout page | Pass |
+
+### Add Workout Testing
+| Feature  | Expected outcome  | Testing performed  | Result  | Pass/Fail  |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| Hover colour change on save workout button to identify link | The button will change to the secondary colour to identify it's a clickable link | Hover over save workout button | Button changed to secondary colour | Pass|
+| Hover colour change on cancel/back to my workouts button to identify link | The button will change to the secondary colour to identify it's a clickable link | Hover over cancel/back to my workouts button | Button changed to secondary colour | Pass|
+| Fields required | If user leaves any fields empty form will not submit and data will not save | User attempted to save workout with fields empty | Workout data did not save and message popped up advising field required | Pass |
+| Save workout button | If valid form is entered and save workout clicked workout data is saved to the database and user is returned to the dashboard | User completed valid form and clicked save workout button | Workout was saved and rendered to the dashboard | Pass |
+| Cancel/back to my workouts button | If clicked takes user back to the dashboard without saving workout | User clicked cancel/back to my workouts button | User was returned to the dashboard | Pass |
+
+### Edit Workout Testing
+| Feature  | Expected outcome  | Testing performed  | Result  | Pass/Fail  |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| Hover colour change on save changes button to identify link | The button will change to the secondary colour to identify it's a clickable link | Hover over save changes button | Button changed to secondary colour | Pass|
+| Hover colour change on cancel/back to my workouts button to identify link | The button will change to the secondary colour to identify it's a clickable link | Hover over cancel/back to my workouts button | Button changed to secondary colour | Pass|
+| Edit workout form | Edit workout form renders pre-populated with  existing workout data to update | Clicked edit button | User was taken to edit workout form that was pre-populated with workout data | Pass |
+| Fields required | If user leaves any fields empty form will not submit and data will not save | User attempted to update workout with fields empty | Workout data did not save and message popped up advising field required | Pass |
+| Save changes button | If valid form is entered and save changes clicked updated workout data is saved to the database and user is returned to the dashboard | User completed valid form and clicked save changes button | Workout was updated and rendered to the dashboard | Pass |
+| Cancel/back to my workouts button | If clicked takes user back to the dashboard without saving workout | User clicked cancel/back to my workouts button | User was returned to the dashboard | Pass |
+
+### Logout Testing
+| Feature  | Expected outcome  | Testing performed  | Result  | Pass/Fail  |
+| ------------ | ------------ | ------------ | ------------ | ------------ |
+| Hover colour change on sign out button to identify link | The button will change to the secondary colour to identify it's a clickable link | Hover over sign out button | Button changed to secondary colour | Pass|
+| Hover colour change on cancel/back to my workouts button to identify link | The button will change to the secondary colour to identify it's a clickable link | Hover over cancel/back to my workouts button | Button changed to secondary colour | Pass|
+| Cancel/back to my workouts button | If clicked takes user back to the dashboard without saving workout | User clicked cancel/back to my workouts button | User was returned to the dashboard | Pass |
+| Sign out button | Securely logs the user out and returns them to the app home page| Clicked signout button | User signed out and returned to the homepage where a message displayed 'You have signed out.' | Pass |
 
 ## Automated Testing
+All automated tests were run using [Django test framework](https://docs.djangoproject.com/en/stable/topics/testing/) via `python manage.py test`. The full test suite covers views, forms authentication and CRUD functionality.
+
+| Pass/Fail | Screenshot | Error Message | Notes |
+|----|----|----|----|
+| Fail | ![Automated test fail](/documentation/automated-testing/automated-test-fail.PNG) | Reverse for 'workouts' not found. 'workouts' is not a valid view function or pattern name. | `test_workout_page_for_logged_in_user(self)` failed because 'workouts' was not a valid URL |
+| Pass | ![Automated test pass](/documentation/automated-testing/automated-test-pass.PNG) | N/A | changed 'workouts' to 'workouts:index' in `test_workout_page_for_logged_in_user(self)` and all tests passed. |
+
