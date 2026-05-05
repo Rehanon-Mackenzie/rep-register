@@ -2,12 +2,7 @@
 ## 💻 Developer
 [Rehanon Mackenzie](https://github.com/Rehanon-Mackenzie)
 <br>
-![GitHub last commit](https://img.shields.io/github/last-commit/rehanon-mackenzie/rep-register?style=for-badge&color=red)
-![GitHub contributors](https://img.shields.io/github/contributors/rehanon-mackenzie/rep-register?style=for-badge&color=orange)
-![GitHub language count](https://img.shields.io/github/languages/count/rehanon-mackenzie/rep-register?style=for-badge&color=yellow)
-![GitHub top language](https://img.shields.io/github/languages/top/rehanon-mackenzie/rep-register?style=for-badge&color=green)
-![Deployment](https://img.shields.io/badge/deployment-heroku-purple)
-<br>
+![GitHub last commit](https://img.shields.io/github/last-commit/rehanon-mackenzie/rep-register?style=for-badge&color=red) ![GitHub contributors](https://img.shields.io/github/contributors/rehanon-mackenzie/rep-register?style=for-badge&color=orange) ![GitHub language count](https://img.shields.io/github/languages/count/rehanon-mackenzie/rep-register?style=for-badge&color=yellow) ![GitHub top language](https://img.shields.io/github/languages/top/rehanon-mackenzie/rep-register?style=for-badge&color=green) ![Deployment](https://img.shields.io/badge/deployment-heroku-purple)
 Rep Register is a full-stack web application designed to allow users to store, track and manage weight training workouts over time.  It provides users full CRUD functionality, user authentication and a structured relational database to support workout progression tracking.
 
 ![Rep Register responsive image](/static/images/rep-register-responsive.PNG)
@@ -28,9 +23,17 @@ Visit the deployed site: [Rep Register](https://rep-register-0917d4849eb9.heroku
     * [User Experience](#user-experience-ux)
     * [Design](#design)
     * [Testing](#testing)
+    * [Deployment & Local Development](#deployment--local-development)
+    * [Credits](#credits)
+    * [Acknowledgements](#acknowledgements)
     
 
 ## About
+Rep Register was developed to provide users an automated way to track their workouts and enhance their fitness journey.  Care was taken to ensure that the input of data was simple to make sure users aren't disturbed during their workouts.
+
+The current iteration has been developed to allow users to manage their workout data with full CRUD functionality.  Future iterations will expand user experience by developing programmable rest timers, user designed workout templates, fitness analytics etc.
+
+It's commonly understood when progress is tracked improvement occurs and Rep Register enables ever users just beginning on their fitness journey to see how they are improving.
 
 ## User Experience (UX)
 This section documents the decisions made in the planning phase of the build.  I applied Agile methodology to plan this build.  Specifically, I used GitHub Issues and a Kanban board to plan out the requirements and worked with MoSCoW prioritisation method to create a minimum viable product.  This allowed me to think of what was absolute necessary in this iteration of the app and what could be developed in future versions.
@@ -189,10 +192,23 @@ The primary functions used on this application are:
 > Please see the separate [TESTING.md](Testing.md) file for all the tests carried out.
 
 ### Known Bugs and Fixes
+Although I kept notes of bugs during development in a notebook, for future projects I will use GitHub Issues to track bugs.  This will allow for easier writing of documentation throughout the development process.
+
 | Issue | Fix | Status | Learning |
 |----|----|----|----|
+|  NoReverseMatch error causing automated test fail | Changed `workouts` to `workout:index` | Fixed | Clarity on how urls function withing Django |
+| Login redirect not working correctly after authentication | corrected the `LOGIN_REDIRECT_URL` in `settings.py` to point to the correct view | Fixed | Django allauth redirect settings must match the app's URL configuration |
+| `IntegrityError` on `user_id` field when saving workout |  Fixed by ensuring the logged-in user was correctly assigned to the workout instance before saving | Fixed | ForeignKey fields must be populated before calling `.save()` otherwise the database constraint is violated |
+| Heading hierarchy error in HTML Validator | Changed h3 to h2 | Fixed | Important to check how individual templates interact with base html |
+| Styling not applying on the sign out template | Linked the custom stylesheet in base html | Fixed | Add the CSS link as soon as created and view source code on the rendered page to insure it is linked |
+| Delete button required confirmation step to prevent accidental data loss | Implemented a Bootstrap modal to prompt the user to confirm before deleting a workout | fixed | Defensive UX design is important for destructive actions - always confirm before delete |
+| Form validation is not working correctly in tests | Passed data correctly into the form constructor using the `data={}` keyword argument | Fixed | Django test forms require data to be passed explicitly as a dictionary |
+
+As far as I am aware, all the bugs listed above have been functionally fixed and the application is working as expected in the deployed version.
 
 ### Known Issues
+The allauth signup validations errors remain as they come from the allauth package itself and are outside the developer's control.
+
 The project is designed to be responsive from 375px and upwards, in line with the material taught on the course LMS. Minor layout inconsistencies may occur on extra-wide (e.g. 4k/8k monitors), or smart-display devices (e.g. Nest Hub, Smart Watches, Game Boy Color, etc.), as these resolutions are outside the project's scope, as taught by Code Institute.
 
 ## Deployment & Local Development
@@ -353,11 +369,23 @@ There are no remaining major differences between the local version when compared
 
 ## Credits
 
-### Code Used
-
 ### Content
+| Source | Notes|
+|----|----|
+| [Claude](https://claude.ai/login) | Explaining code logic and planning documentation. |
+| [Youtube](https://www.youtube.com/watch?v=rI95wyHD_6k)  | Further learning on how to create models and also a function to render the landing page `def home(request):return render(request, 'home.html')` |
+| [freeCodeCamp](https://www.freecodecamp.org/news/build-and-deploy-a-fitness-tracker-using-python-django-and-pythonanywhere/) | I read the blog on creating a fitness tracker for clarity on the flow I would need in the app |
+
 
 ### Media
+| Source | Note |
+|----|----|
+| [Freepik](https://www.magnific.com/icon/dumbell_12572002#fromView=search&page=1&position=16&uuid=cf21ed36-4c8a-4f70-9600-7f0e55b88b9c) | Dumbell icon used for the logo and favicon |
+| [favicon.io]() | Used to create the favicon from the dumbell logo | 
 
 ## Acknowledgements
-
+- I would like to thank the [Code Insitute](https://codeinstitute.net/) for the module on Django which really helped me get my head round using the framework.
+- I would like to thank my tutor, Manu who is always very helpful and offers support when I meet with him.
+- I would like to thank my friends and family who are alway super supportive especially when I think I can't do something. Their belief is such a gift.
+- I would like to thank Aorthi & Lola, who created the [Hot Girls Code](https://hot-girls-code.com/home) podcast that has been so helpful on my coding journey.
+- Finally, I would like to thank the team at [codebar Brighton](https://codebar.io/brighton) who are such a supportive community and make me excited to be involved in tech. 
