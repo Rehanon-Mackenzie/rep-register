@@ -145,7 +145,7 @@ The primary functions used on this application are:
     - Retrieves an existing workout by its ID and deletes it from the database
 - `volume(self)`
     - Computed property that calculates total volume by multiplying weight x sets x reps
-- `_str_(self)`
+- `__str__(self)`
     - Returns the exercise name as the string representation of the workout object
 - `setUp(self)`
     - Initialises a test user and sample workout to be used across the test cases
@@ -160,7 +160,7 @@ The primary functions used on this application are:
 - `test_delete_workout(self)`
     - Tests that a workout is correctly removed from the database when deleted
 - `test_form_valid_data(self)`
-    - Tests that the workout form is valid all required fields are provided
+    - Tests that the workout form is valid when all required fields are provided
 - `test_form_missing_fields(self)`
     - Tests that the workout form fails validation when required fields are missing
 
